@@ -50,8 +50,11 @@ export class AppComponent {
     
     this.socket.on('game_start'+ this.uid, (data) =>{
       this.instruccion = parseInt(data.id);
-      this.progress = data.progress;
       this.resetTimer();
+    });
+
+    this.socket.on('progress_change', (data) =>{
+      this.progress = data.progress;
     });
 
   }
