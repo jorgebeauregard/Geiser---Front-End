@@ -57,7 +57,17 @@
     font-size: 4em;
 }
 
+.timer{
+    font-size: 6em;
+}
+
 .font{
     font-family: 'Share Tech Mono', monospace;
 }
+
+#yourElement {
+    -web-kit-animation-duration: 1s;
+    -web-kit-animation-delay: 1s;
+    -web-kit-animation-iteration-count: infinite;
+  }
 

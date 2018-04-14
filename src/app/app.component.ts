@@ -16,6 +16,7 @@ export class AppComponent {
   progress;
   countDown;
   count;
+  uid = '_' + Math.random().toString(36).substr(2, 9)
 
   private url = 'http://ec2-18-188-150-180.us-east-2.compute.amazonaws.com:8080';
   private socket: SocketIOClient.Socket;
@@ -44,15 +45,15 @@ export class AppComponent {
   }
 
   ngOnInit(): void {
-    this.resetTimer();
     this.socket = io.connect(this.url);
-    this.socket.on('news', (data) => {
-      console.log('news: '+ JSON.stringify(data));
+    this.socket.emit('skt_init', {uid : this.uid});
+    
+    this.socket.on('game_start'+ this.uid, (data) =>{
       this.instruccion = parseInt(data.id);
       this.progress = data.progress;
-      console.log(this.instruccion);
       this.resetTimer();
     });
+
   }
 
   randomInt(min, max){
@@ -79,7 +80,8 @@ export class AppComponent {
   }
 
   makePetition(){
-    this.socket.emit('timeOuta',true);
+    console.log("Calling timeout with uid " + this.uid);
+    this.socket.emit('timeOut', this.uid);
   }
 
 }
