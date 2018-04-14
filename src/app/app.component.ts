@@ -13,6 +13,9 @@ export class AppComponent {
   title = 'app';
   instruccion_actual: number;
   data2;
+  progress =  40;
+  timer = 10;
+
   private url = 'http://ec2-18-188-150-180.us-east-2.compute.amazonaws.com:8080';
   private socket: SocketIOClient.Socket;
 
@@ -27,12 +30,16 @@ export class AppComponent {
     this.socket.on('news', (data) => {
       console.log('news: '+ JSON.stringify(data));
       this.data2 = data.id;
+      this.timer = 10;
     });
   }
 
   randomInt(min, max){
-    this.instruccion_actual =  Math.floor(Math.random() * (max - min + 1)) + min;
-    console.log(this.instruccion_actual);
+    this.progress =  Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+  getProgress(){
+    return(this.progress + "%");
   }
 
 

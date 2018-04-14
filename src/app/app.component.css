@@ -4,4 +4,67 @@
     bottom: 0;
     min-width: 100%;
     min-height: 100%;
+    -webkit-filter: brightness(50%);
+    filter: brightness(50%);
+    -webkit-filter: blur(3px);
+    filter: blur(3px);
+    z-index: -1
 }
+
+.content{
+    height: 100vh;
+}
+
+.white {
+    color: white;
+}
+
+.center{
+    text-align: center;
+}
+
+.black-background{
+    background-color: black;
+}
+
+.middle{
+    vertical-align: middle;
+}
+
+.my-auto{
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.outer {
+    display: table;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+.middle {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.inner {
+    margin-left: auto;
+    margin-right: auto;
+    width: 400px;
+    /*whatever width you want*/
+}
+
+.title{
+    font-size: 4em;
+}
+
+.font{
+    font-family: 'Share Tech Mono', monospace;
+}
+
+.padding{
+    padding-top:50%;
+    margin-top:50%;
+}
+
